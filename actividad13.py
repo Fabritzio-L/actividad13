@@ -66,3 +66,16 @@ def consultar_estudiante():
             return
     except Exception as e:
         print("Error al consultar estudiante: ",e)
+def calcular_promedio():
+    try:
+        carnet= input("Ingrese el carnet del estudiante a calcular su promedio: ")
+        if carnet in estudiantes:
+            promedio = sum(estudiantes[carnet]["cursos"].values())/len(estudiantes[carnet]["cursos"])
+            print(f"El promedio de notas es: {promedio:.2f}")
+        else:
+            print("Carnet no encontrado")
+            return
+    except ZeroDivisionError:
+        print("Error: no se puede calcular el promedio sin notas agregadas.")
+    except Exception as e:
+        print("Error al calcular el promedio: ",e)
