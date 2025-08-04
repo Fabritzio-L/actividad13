@@ -96,3 +96,20 @@ def verificar_aprobacion():
             print("Carnet no encontrado")
     except Exception as e:
         print("Error al verificar aprobacion: ",e)
+def mostrar_estudiantes():
+    try:
+        if estudiantes:
+            for carnet, datos in estudiantes.items():
+                print(f"\nCarnet: {carnet}")
+                print(f"Nombre: {datos["nombre"]}")
+                print(f"Carrera: {datos["carrera"]}")
+                if datos["cursos"]:
+                    print("Cursos:")
+                    for curso, data in datos["cursos"].items():
+                        print(f"-Curso: {curso} | Nota: {data["nota"]}")
+                else:
+                    print("No tiene cursos registrados")
+        else:
+            print("No hay estudiantes registrados")
+    except Exception as e:
+        print("Error al mostrar todos los estudiantes: ",e)
