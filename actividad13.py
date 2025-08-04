@@ -21,7 +21,31 @@ def agregar_estudiante():
             "carrera":carrera,
             "cursos":{}
         }
+        print("Estudiante agregado.")
     except Exception as e:
         print("Error al agregar el estudiante:", e)
     finally:
         print("Volviendo al menu principal...")
+def agregar_curso():
+    try:
+        carnet= input("Ingrese el carnet para agregarle un curso: ")
+        if carnet in estudiantes:
+            curso= input("Ingrese el nombre del curso: ")
+            if not curso:
+                print("El curso no puede estaer vacio")
+                return
+            nota= int(input("Ingrese la final: "))
+            if nota <0 or nota >100:
+                print("Nota invalida")
+                return
+            estudiantes[carnet]["cursos"][curso]=nota
+            print("Curso agregado.")
+        else:
+            print("Carnet no encontrado.")
+            return
+    except ValueError:
+        print("Error: La nota debe ser un numero entero")
+    except Exception as e:
+        print("Error al agregar el curso:", e)
+    finally:
+        print("Volviendo al menu principal")
