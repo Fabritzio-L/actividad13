@@ -79,3 +79,20 @@ def calcular_promedio():
         print("Error: no se puede calcular el promedio sin notas agregadas.")
     except Exception as e:
         print("Error al calcular el promedio: ",e)
+def verificar_aprobacion():
+    try:
+        carnet= input("Ingrese el carnet a verificar: ")
+        if carnet in estudiantes:
+            if estudiantes[carnet]["cursos"]:
+                for curso, nota in estudiantes[carnet]["cursos"].items():
+                    if nota < 61:
+                        print(f"No aprueba el curso: {curso} (nota: {datos["nota"]}")
+                        return
+                    else:
+                        print("Aprueba todos los cursos")
+            else:
+                print("El estudiante no tiene cursos registrados.")
+        else:
+            print("Carnet no encontrado")
+    except Exception as e:
+        print("Error al verificar aprobacion: ",e)
