@@ -49,3 +49,20 @@ def agregar_curso():
         print("Error al agregar el curso:", e)
     finally:
         print("Volviendo al menu principal")
+def consultar_estudiante():
+    try:
+        carnet= input("Ingrese el carnet del estudiante a consultar: ")
+        if carnet in estudiantes:
+            print(f"Nombre: {estudiantes[carnet]["nombre"]}")
+            print(f"Carrera: {estudiantes[carnet]["carrera"]}")
+            if estudiantes[carnet]["cursos"]:
+                print("Cursos y notas: ")
+                for curso, datos in estudiantes[carnet]["cursos"].items():
+                    print(f"-Curso: {curso} | Nota: {datos["notas"]}")
+            else:
+                print("No tiene cursos registrados")
+        else:
+            print("Carnet no encontrado")
+            return
+    except Exception as e:
+        print("Error al consultar estudiante: ",e)
