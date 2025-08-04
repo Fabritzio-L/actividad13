@@ -7,8 +7,8 @@ def agregar_estudiante(): #Funcion para agregar un estudiante
                 print("El carnet no puede estar vacio")
             elif carnet in estudiantes:
                 print("El carnet ya ha sido registrado.")
-            else:
-                break   #Si el usuario ingresa todo bien entonces pasara con el siguiente dato
+            else: #Si el usuario ingresa bien entonces pasara con el siguiente dato
+                break
         while True: #Se inicia con otro bucle para el campo de nombre con la misma logica para que no se deje el campo vacio
             nombre= input("Ingrese el nombre del estudiante: ")
             if not nombre:
